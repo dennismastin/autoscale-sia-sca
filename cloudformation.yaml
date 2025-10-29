@@ -1,0 +1,53 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create an Auto Scaling Group from an existing Launch Template.
+
+Parameters:
+  ASGName:
+    Type: String
+    Description: Auto Scaling Group name (was $ASG_NAME)
+  LaunchTemplateName:
+    Type: String
+    Default: ENABLEMENT-FALL-2025-SIA-v2
+    Description: Existing Launch Template name
+  LaunchTemplateVersion:
+    Type: String
+    Default: '2'
+    Description: Launch Template version string/number
+  MinSize:
+    Type: Number
+    Description: Minimum capacity (was $ASG_MIN_SIZE)
+  MaxSize:
+    Type: Number
+    Description: Maximum capacity (was $ASG_MAX_SIZE)
+  DesiredCapacity:
+    Type: Number
+    Description: Desired capacity (was $ASG_DESIRED_CAPACITY)
+  SubnetIds:
+    Type: CommaDelimitedList
+    Description: Comma-separated subnet IDs for the ASG (was $ASG_VPC_ID in CLI)
+
+Resources:
+  AutoScalingGroup:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      AutoScalingGroupName: !Ref ASGName
+      MinSize: !Ref MinSize
+      MaxSize: !Ref MaxSize
+      DesiredCapacity: !Ref DesiredCapacity
+      VPCZoneIdentifier: !Ref SubnetIds
+      LaunchTemplate:
+        LaunchTemplateName: !Ref LaunchTemplateName
+        Version: !Ref LaunchTemplateVersion
+      Tags:
+        - Key: Name
+          Value: !Ref ASGName
+          PropagateAtLaunch: true
+
+Outputs:
+  ASGNameOut:
+    Value: !Ref AutoScalingGroup
+    Description: Auto Scaling Group logical name
+  ASGArn:
+    Value: !GetAtt AutoScalingGroup.AutoScalingGroupARN
+    Description: Auto Scaling Group ARN
+

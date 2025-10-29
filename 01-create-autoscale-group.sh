@@ -1,0 +1,33 @@
+#!/bin/bash
+
+clear
+
+source ./00-env.sh
+
+echo "Creating AutoScale Group in $REGION ($ASG_VPC_ID): $ASG_NAME..."
+echo
+echo -e "aws autoscaling create-auto-scaling-group \r
+  --auto-scaling-group-name $ASG_NAME \r
+  --launch-template \"LaunchTemplateName=ENABLEMENT-FALL-2025-SIA-v2,Version=2\" \r
+  --min-size $ASG_MIN_SIZE \r
+  --max-size $ASG_MAX_SIZE \r
+  --desired-capacity $ASG_DESIRED_CAPACITY \r
+  --vpc-zone-identifier $ASG_VPC_ID \r
+  --tags Key=Name,Value=$ASG_NAME,PropagateAtLaunch=true \r
+  --profile $PROFILE \r
+  --region $REGION"
+
+aws autoscaling create-auto-scaling-group \
+  --auto-scaling-group-name $ASG_NAME \
+  --launch-template "LaunchTemplateName=ENABLEMENT-FALL-2025-SIA-v2,Version=2" \
+  --min-size $ASG_MIN_SIZE\
+  --max-size $ASG_MAX_SIZE\
+  --desired-capacity $ASG_DESIRED_CAPACITY \
+  --vpc-zone-identifier $ASG_VPC_ID \
+  --tags Key=Name,Value=$ASG_NAME,PropagateAtLaunch=true \
+  --profile $PROFILE \
+  --region $REGION
+
+  
+
+
