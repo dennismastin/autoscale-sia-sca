@@ -8,7 +8,7 @@ echo "Creating AutoScale Group in $REGION ($ASG_VPC_ID): $ASG_NAME..."
 echo
 echo -e "aws autoscaling create-auto-scaling-group \r
   --auto-scaling-group-name $ASG_NAME \r
-  --launch-template \"LaunchTemplateName=ENABLEMENT-FALL-2025-SIA-v2,Version=2\" \r
+  --launch-template \"LaunchTemplateName=$ASG_LAUNCH_TEMPLATE_NAME,Version=$ASG_LAUNCH_TEMPLATE_VERSION\" \r
   --min-size $ASG_MIN_SIZE \r
   --max-size $ASG_MAX_SIZE \r
   --desired-capacity $ASG_DESIRED_CAPACITY \r

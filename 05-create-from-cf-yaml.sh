@@ -4,11 +4,11 @@ source ./00-env.sh
 
 aws cloudformation deploy \
   --template-file "./cloudformation.yaml" \
-  --stack-name my-asg-stack-01 \
+  --stack-name "$ASG_NAME" \
   --parameter-overrides \
       ASGName="$ASG_NAME" \
-      LaunchTemplateName="ENABLEMENT-FALL-2025-SIA-v2" \
-      LaunchTemplateVersion="2" \
+      LaunchTemplateName="$ASG_LAUNCH_TEMPLATE_NAME" \
+      LaunchTemplateVersion="$ASG_LAUNCH_TEMPLATE_VERSION" \
       MinSize="$ASG_MIN_SIZE" \
       MaxSize="$ASG_MAX_SIZE" \
       DesiredCapacity="$ASG_DESIRED_CAPACITY" \
