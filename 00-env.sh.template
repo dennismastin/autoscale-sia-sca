@@ -14,9 +14,9 @@ export PROFILE="cyberark_elevated"
 
 
 ## Change these parameters for your unique details
-export ASG_NAME="AWS-SE-WORKSHOP-ASG-FT01"
-export EMAIL="forrest.temple@cyberark.com"
-export WORKSHOP_DATE="2025-10-22"
+export ASG_NAME="AWS-SE-WORKSHOP-ASG-<YOUR INITIALS>01"
+export EMAIL="<YOUR CYBERARK CORP DOMAIN EMAIL>"
+export WORKSHOP_DATE="<YOUR WORKSHOP DATE YYYY-MM-DD>"
 
 ## Auto Scaling Group (ASG) configuration
 export ASG_MIN_SIZE=1 

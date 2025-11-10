@@ -13,7 +13,7 @@ echo -e "aws autoscaling create-auto-scaling-group \r
   --max-size $ASG_MAX_SIZE \r
   --desired-capacity $ASG_DESIRED_CAPACITY \r
   --vpc-zone-identifier $ASG_VPC_ID \r
-  --tags Key=Name,Value=$ASG_NAME,PropagateAtLaunch=true \r
+  --tags "Key=name,Value=$ASG_NAME" "Key=CA_iCreator_CreatorBy,Value=$EMAIL" "Key=purpose,Value=AWS SE Workshop" "Key=workshop_date,Value=$WORKSHOP_DATE",PropagateAtLaunch=true \r
   --profile $PROFILE \r
   --region $REGION"
 
@@ -24,7 +24,7 @@ aws autoscaling create-auto-scaling-group \
   --max-size $ASG_MAX_SIZE\
   --desired-capacity $ASG_DESIRED_CAPACITY \
   --vpc-zone-identifier $ASG_VPC_ID \
-  --tags Key=Name,Value=$ASG_NAME,PropagateAtLaunch=true \
+  --tags "Key=name,Value=$ASG_NAME" "Key=CA_iCreator_CreatorBy,Value=$EMAIL" "Key=purpose,Value=AWS SE Workshop" "Key=workshop_date,Value=$WORKSHOP_DATE",PropagateAtLaunch=true \
   --profile $PROFILE \
   --region $REGION
 
