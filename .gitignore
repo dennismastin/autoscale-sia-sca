@@ -1,2 +1,4 @@
 # Exclude 00-env.sh, while including 00-env.sh.template
 00-env.sh
+
+*.pem
