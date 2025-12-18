@@ -12,9 +12,8 @@ export AWS_CREDS_FILE="$HOME/.aws/credentials"
 ## The profile in the AWS credentials file
 export PROFILE="cyberark_elevated"
 
-
 ## Change these parameters for your unique details
-export ASG_NAME="AWS-SE-WORKSHOP-ASG-<YOUR INITIALS>01"
+export ASG_NAME="2026-SEWORKSHOP-AWS-ASG-<YOUR INITIALS>01"
 export EMAIL="<YOUR CYBERARK CORP DOMAIN EMAIL>"
 export WORKSHOP_DATE="<YOUR WORKSHOP DATE YYYY-MM-DD>"
 
